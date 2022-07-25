@@ -17,13 +17,3 @@ steps:
       echo 'Cloning into sources folder at: c://temp'
       git clone https://https://github.com/manavilai/pipelines-java.git --progress --branch main --single-branch --depth=1 c://temp
       exit
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
