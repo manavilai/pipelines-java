@@ -10,6 +10,13 @@ pool:
   my_laptop
 
 steps:
+- task: CmdLine@2
+  displayName: 'Custom git clone'
+  inputs:
+    script: |
+      echo 'Cloning into sources folder at: c://temp'
+      git clone https://https://github.com/manavilai/pipelines-java.git --progress --branch main --single-branch --depth=1 c://temp
+      exit
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
