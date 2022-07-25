@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  laptopAgent
 
 steps:
 - task: Maven@3
