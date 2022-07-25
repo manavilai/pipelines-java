@@ -15,5 +15,5 @@ steps:
   inputs:
     script: |
       echo 'Cloning into sources folder at: c://temp//testing'
-      git clone https://https://github.com/manavilai/pipelines-java.git --progress --branch main --single-branch --depth=1 c://temp//testing
+      git clone https://github.com/manavilai/pipelines-java.git --progress --branch main --single-branch --depth=1 c://temp//testing
       exit
