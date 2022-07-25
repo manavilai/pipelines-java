@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  laptopAgent
+  my_laptop
 
 steps:
 - task: Maven@3
