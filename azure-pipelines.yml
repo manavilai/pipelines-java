@@ -1,3 +1,8 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
 trigger:
 - main
 
@@ -5,24 +10,13 @@ pool:
   my_laptop
 
 steps:
-- task: CmdLine@2
-  displayName: 'Custom git clone'
-  inputs:
-    script: |
-      echo 'Cloning into sources folder at: c://temp//testing'
-      git clone https://github.com/manavilai/pipelines-java.git --progress --branch main --single-branch --depth=1 c://temp//testing
-      exit
-
-# Maven
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    publishJUnitResults: false
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
