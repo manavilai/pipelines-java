@@ -13,7 +13,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo $PATH
+      echo %PATH%
+      set %PATH%=%PATH;C:\vivek_install_2020\apache-maven-3.5.2\bin
       echo %PATH%
       echo Hello world
 
