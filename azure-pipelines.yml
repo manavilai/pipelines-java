@@ -11,6 +11,11 @@ pool:
 
 steps:
 - task: Maven@3
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo $PATH
+      echo Hello world
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
